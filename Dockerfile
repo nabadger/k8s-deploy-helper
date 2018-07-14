@@ -1,5 +1,5 @@
-FROM docker:17.11.0-ce-dind
-
+#FROM docker:17.11.0-ce-dind
+FROM docker:stable-git
 ENV HELM_VERSION="2.6.1" \
     KUBECTL_VERSION="1.8.7" \
     YQ_VERSION="1.14.0" \ 
