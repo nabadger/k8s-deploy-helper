@@ -13,9 +13,11 @@ if [[ -n "$CI_REGISTRY_USER" ]]; then
   echo ""
 fi
 
+export CI_APPLICATION_REPOSITORY=$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG
+export CI_APPLICATION_TAG=$CI_COMMIT_SHA
+
 export DEPLOY_ROOT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 source "$DEPLOY_ROOT_DIR/src/common.bash"
-
 setup_docker
 
 echo "Scanning container image..."
