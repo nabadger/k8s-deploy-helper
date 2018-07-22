@@ -19,6 +19,8 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/
     && apk add glibc-$GLIBC_VERSION.apk \ 
     && rm glibc-$GLIBC_VERSION.apk
 
+RUN wget -q -O /usr/local/bin/clair-scanner https://github.com/arminc/clair-scanner/releases/download/v8/clair-scanner_linux_amd64 && chmod +x /usr/local/bin/clair-scanner
+
 # Install yq
 RUN wget -q -O /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 && chmod +x /usr/local/bin/yq
 
