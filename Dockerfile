@@ -1,4 +1,4 @@
-FROM docker:17.11.0-ce-dind
+FROM docker:stable
 ENV KUBECTL_VERSION="1.8.7" \
     YQ_VERSION="1.14.0" \ 
     GLIBC_VERSION="2.23-r3" \
