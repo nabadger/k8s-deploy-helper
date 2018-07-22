@@ -13,7 +13,7 @@ source "$DEPLOY_ROOT_DIR/src/common.bash"
 
 buildargs=$(get_buildargs)
 
-export DOCKER_HOST='tcp://localhost:2375'
+setup_docker
 
 if [[ -n "$CI_REGISTRY_USER" ]]; then
 	echo "Logging to GitLab Container Registry with CI credentials..."
