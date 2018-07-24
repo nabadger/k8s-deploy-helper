@@ -1,7 +1,6 @@
 FROM docker:stable
 ENV KUBECTL_VERSION="1.8.7" \
     YQ_VERSION="1.14.0" \ 
-    GLIBC_VERSION="2.23-r3" \
     PATH=/opt/kubernetes-deploy:$PATH
 
 # Install pre-req
@@ -12,12 +11,6 @@ RUN apk add -U openssl curl tar gzip bash ca-certificates git wget jq libintl co
 
 # Install deploy scripts
 COPY / /opt/kubernetes-deploy/
-
-# Install glibc for Alpine
-#RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub \ 
-#    && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/$GLIBC_VERSION/glibc-$GLIBC_VERSION.apk \ 
-#    && apk add glibc-$GLIBC_VERSION.apk \ 
-#    && rm glibc-$GLIBC_VERSION.apk
 
 RUN wget -q -O /usr/local/bin/clair-scanner https://github.com/arminc/clair-scanner/releases/download/v8/clair-scanner_linux_amd64 && chmod +x /usr/local/bin/clair-scanner
 
